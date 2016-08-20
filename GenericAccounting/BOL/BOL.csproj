@@ -51,10 +51,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="account.cs">
+      <DependentUpon>GenericAccountEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creditor.cs">
+      <DependentUpon>GenericAccountEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creditoraccount.cs">
+      <DependentUpon>GenericAccountEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="debtor.cs">
+      <DependentUpon>GenericAccountEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="debtoraccount.cs">
+      <DependentUpon>GenericAccountEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="GenericAccountEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GenericAccountEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenericAccountEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenericAccountEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="GenericAccountEntities.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -62,6 +82,9 @@
       <DependentUpon>GenericAccountEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user.cs">
+      <DependentUpon>GenericAccountEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="GenericAccountEntities.edmx">
@@ -80,6 +103,12 @@
     <Content Include="GenericAccountEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>GenericAccountEntities.Context.cs</LastGenOutput>
+      <DependentUpon>GenericAccountEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="GenericAccountEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GenericAccountEntities.edmx</DependentUpon>
+      <LastGenOutput>GenericAccountEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
