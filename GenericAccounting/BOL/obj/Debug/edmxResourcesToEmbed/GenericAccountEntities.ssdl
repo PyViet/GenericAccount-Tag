@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GenericAccountingDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="accountnumber" />
+    </Key>
+    <Property Name="accountnumber" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="amount" Type="float" />
+    <Property Name="awarddate" Type="date" />
+    <Property Name="state" Type="nchar" MaxLength="30" />
+    <Property Name="status" Type="nchar" MaxLength="30" />
+    <Property Name="apr" Type="float" />
+    <Property Name="courtcost" Type="float" />
+    <Property Name="servicecost" Type="float" />
+    <Property Name="userassigned" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="creditor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="firstname" Type="nchar" MaxLength="30" />
+    <Property Name="lastname" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="fullname" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="creditoraccount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="creditor" Type="int" Nullable="false" />
+    <Property Name="account" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="primarycreditor" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="debtoraccount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="debtor" Type="int" Nullable="false" />
+    <Property Name="account" Type="nchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="debtors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="firstname" Type="nchar" MaxLength="30" />
+    <Property Name="lastname" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="fullname" Type="nchar" MaxLength="60" Nullable="false" />
+    <Property Name="ssn" Type="int" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="nchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_creditoraccount_account">
+    <End Role="account" Type="Self.account" Multiplicity="1" />
+    <End Role="creditoraccount" Type="Self.creditoraccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="accountnumber" />
+      </Principal>
+      <Dependent Role="creditoraccount">
+        <PropertyRef Name="account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_creditoraccount_creditor">
+    <End Role="creditor" Type="Self.creditor" Multiplicity="1" />
+    <End Role="creditoraccount" Type="Self.creditoraccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="creditor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="creditoraccount">
+        <PropertyRef Name="creditor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_debtoraccount_account">
+    <End Role="account" Type="Self.account" Multiplicity="1" />
+    <End Role="debtoraccount" Type="Self.debtoraccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="accountnumber" />
+      </Principal>
+      <Dependent Role="debtoraccount">
+        <PropertyRef Name="account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_debtoraccount_debtors">
+    <End Role="debtors" Type="Self.debtors" Multiplicity="1" />
+    <End Role="debtoraccount" Type="Self.debtoraccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="debtors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="debtoraccount">
+        <PropertyRef Name="debtor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GenericAccountingDataModelStoreContainer">
+    <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="creditor" EntityType="Self.creditor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="creditoraccount" EntityType="Self.creditoraccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="debtoraccount" EntityType="Self.debtoraccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="debtors" EntityType="Self.debtors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_creditoraccount_account" Association="Self.FK_creditoraccount_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="creditoraccount" EntitySet="creditoraccount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_creditoraccount_creditor" Association="Self.FK_creditoraccount_creditor">
+      <End Role="creditor" EntitySet="creditor" />
+      <End Role="creditoraccount" EntitySet="creditoraccount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_debtoraccount_account" Association="Self.FK_debtoraccount_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="debtoraccount" EntitySet="debtoraccount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_debtoraccount_debtors" Association="Self.FK_debtoraccount_debtors">
+      <End Role="debtors" EntitySet="debtors" />
+      <End Role="debtoraccount" EntitySet="debtoraccount" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

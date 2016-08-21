@@ -146,9 +146,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BOL\BOL.csproj">
+    <ProjectReference Include="..\BOL\BusinessEntities.csproj">
       <Project>{a685345a-9346-41a6-8572-41f8d9317164}</Project>
-      <Name>BOL</Name>
+      <Name>BusinessEntities</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

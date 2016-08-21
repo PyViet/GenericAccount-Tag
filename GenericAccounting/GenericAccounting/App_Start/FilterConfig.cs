@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace GenericAccounting.App_Start
+namespace GenericAccounting
 {
     public class FilterConfig
     {
@@ -12,5 +12,6 @@ namespace GenericAccounting.App_Start
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new AuthorizeAttribute());
+        }
     }
 }

@@ -16,11 +16,16 @@ namespace GenericAccounting.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult DoLogin(user auser)
         {
             if (ModelState.IsValid)
             {
-                
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
             }
         }
     }

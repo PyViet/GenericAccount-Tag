@@ -1,0 +1,9 @@
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\bin\Debug\BOL.dll
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\bin\Debug\BOL.pdb
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Phi Tran\Documents\GitHub\GenericAccount-Tag\GenericAccounting\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

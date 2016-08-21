@@ -56,10 +56,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="DataAccessTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BOL\BusinessEntities.csproj">
+      <Project>{a685345a-9346-41a6-8572-41f8d9317164}</Project>
+      <Name>BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{f4319cb6-8f8e-49f2-a420-1e7a656992ce}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GenericAccounting\GenericAccounting.csproj">
       <Project>{C4905016-B807-4EAA-B435-A96A04CBA969}</Project>
       <Name>GenericAccounting</Name>

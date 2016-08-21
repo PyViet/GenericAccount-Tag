@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericAccounting", "Generi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericAccounting.Tests", "GenericAccounting.Tests\GenericAccounting.Tests.csproj", "{539097A7-2C61-4FAE-A519-EEFA56EAF62A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOL", "BOL\BOL.csproj", "{A685345A-9346-41A6-8572-41F8D9317164}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessEntities", "BOL\BusinessEntities.csproj", "{A685345A-9346-41A6-8572-41F8D9317164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{F4319CB6-8F8E-49F2-A420-1E7A656992CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A685345A-9346-41A6-8572-41F8D9317164}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A685345A-9346-41A6-8572-41F8D9317164}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A685345A-9346-41A6-8572-41F8D9317164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4319CB6-8F8E-49F2-A420-1E7A656992CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4319CB6-8F8E-49F2-A420-1E7A656992CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4319CB6-8F8E-49F2-A420-1E7A656992CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4319CB6-8F8E-49F2-A420-1E7A656992CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
