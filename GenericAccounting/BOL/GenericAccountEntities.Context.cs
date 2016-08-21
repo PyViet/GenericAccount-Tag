@@ -30,6 +30,7 @@ namespace BOL
         public virtual DbSet<creditoraccount> creditoraccounts { get; set; }
         public virtual DbSet<debtoraccount> debtoraccounts { get; set; }
         public virtual DbSet<debtor> debtors { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<user> users { get; set; }
     }
 }

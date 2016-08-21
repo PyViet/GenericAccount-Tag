@@ -33,9 +33,9 @@ namespace DataAccessLayer
             }
         }
 
-        public void deleteUser(user auser)
+        public void deleteUser(string username)
         {
-            user toremove = dataEntities.users.Find(auser.username);
+            user toremove = dataEntities.users.Find(username);
             dataEntities.users.Remove(toremove);
             dataEntities.SaveChanges();
         }

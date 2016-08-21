@@ -18,7 +18,6 @@ namespace BOL
         public int debtor { get; set; }
         public string account { get; set; }
     
-        public virtual account account1 { get; set; }
         public virtual debtor debtor1 { get; set; }
     }
 }

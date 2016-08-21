@@ -18,7 +18,6 @@ namespace BOL
         public account()
         {
             this.creditoraccounts = new HashSet<creditoraccount>();
-            this.debtoraccounts = new HashSet<debtoraccount>();
         }
     
         public string accountnumber { get; set; }
@@ -33,7 +32,5 @@ namespace BOL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<creditoraccount> creditoraccounts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<debtoraccount> debtoraccounts { get; set; }
     }
 }

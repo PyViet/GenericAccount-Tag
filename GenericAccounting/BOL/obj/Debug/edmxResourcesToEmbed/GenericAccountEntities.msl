@@ -4,63 +4,75 @@
     <EntitySetMapping Name="accounts">
       <EntityTypeMapping TypeName="GenericAccountingDataModel.account">
         <MappingFragment StoreEntitySet="account">
-          <ScalarProperty Name="accountnumber" ColumnName="accountnumber" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="awarddate" ColumnName="awarddate" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="apr" ColumnName="apr" />
-          <ScalarProperty Name="courtcost" ColumnName="courtcost" />
-          <ScalarProperty Name="servicecost" ColumnName="servicecost" />
           <ScalarProperty Name="userassigned" ColumnName="userassigned" />
+          <ScalarProperty Name="servicecost" ColumnName="servicecost" />
+          <ScalarProperty Name="courtcost" ColumnName="courtcost" />
+          <ScalarProperty Name="apr" ColumnName="apr" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="awarddate" ColumnName="awarddate" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="accountnumber" ColumnName="accountnumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="creditors">
       <EntityTypeMapping TypeName="GenericAccountingDataModel.creditor">
         <MappingFragment StoreEntitySet="creditor">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="firstname" ColumnName="firstname" />
-          <ScalarProperty Name="lastname" ColumnName="lastname" />
           <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="creditoraccounts">
       <EntityTypeMapping TypeName="GenericAccountingDataModel.creditoraccount">
         <MappingFragment StoreEntitySet="creditoraccount">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="creditor" ColumnName="creditor" />
-          <ScalarProperty Name="account" ColumnName="account" />
           <ScalarProperty Name="primarycreditor" ColumnName="primarycreditor" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="creditor" ColumnName="creditor" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="debtoraccounts">
       <EntityTypeMapping TypeName="GenericAccountingDataModel.debtoraccount">
         <MappingFragment StoreEntitySet="debtoraccount">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="debtor" ColumnName="debtor" />
           <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="debtor" ColumnName="debtor" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="debtors">
       <EntityTypeMapping TypeName="GenericAccountingDataModel.debtor">
         <MappingFragment StoreEntitySet="debtors">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="firstname" ColumnName="firstname" />
-          <ScalarProperty Name="lastname" ColumnName="lastname" />
-          <ScalarProperty Name="fullname" ColumnName="fullname" />
           <ScalarProperty Name="ssn" ColumnName="ssn" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="GenericAccountingDataModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="GenericAccountingDataModel.user">
         <MappingFragment StoreEntitySet="users">
-          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
           <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

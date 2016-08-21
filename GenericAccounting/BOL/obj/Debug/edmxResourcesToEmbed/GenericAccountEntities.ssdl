@@ -4,24 +4,24 @@
     <Key>
       <PropertyRef Name="accountnumber" />
     </Key>
-    <Property Name="accountnumber" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="accountnumber" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="amount" Type="float" />
     <Property Name="awarddate" Type="date" />
-    <Property Name="state" Type="nchar" MaxLength="30" />
-    <Property Name="status" Type="nchar" MaxLength="30" />
+    <Property Name="state" Type="nvarchar" MaxLength="30" />
+    <Property Name="status" Type="nvarchar" MaxLength="30" />
     <Property Name="apr" Type="float" />
     <Property Name="courtcost" Type="float" />
     <Property Name="servicecost" Type="float" />
-    <Property Name="userassigned" Type="nchar" MaxLength="30" />
+    <Property Name="userassigned" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="creditor">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="firstname" Type="nchar" MaxLength="30" />
-    <Property Name="lastname" Type="nchar" MaxLength="30" Nullable="false" />
-    <Property Name="fullname" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="30" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="creditoraccount">
     <Key>
@@ -29,7 +29,7 @@
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="creditor" Type="int" Nullable="false" />
-    <Property Name="account" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="account" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="primarycreditor" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="debtoraccount">
@@ -38,24 +38,35 @@
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="debtor" Type="int" Nullable="false" />
-    <Property Name="account" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="account" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="debtors">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="firstname" Type="nchar" MaxLength="30" />
-    <Property Name="lastname" Type="nchar" MaxLength="30" Nullable="false" />
-    <Property Name="fullname" Type="nchar" MaxLength="60" Nullable="false" />
+    <Property Name="firstname" Type="nvarchar" MaxLength="30" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="fullname" Type="nvarchar" MaxLength="60" Nullable="false" />
     <Property Name="ssn" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="users">
     <Key>
       <PropertyRef Name="username" />
     </Key>
-    <Property Name="username" Type="nchar" MaxLength="20" Nullable="false" />
-    <Property Name="password" Type="nchar" MaxLength="300" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="salt" Type="nvarchar" MaxLength="300" Nullable="false" />
   </EntityType>
   <Association Name="FK_creditoraccount_account">
     <End Role="account" Type="Self.account" Multiplicity="1" />
@@ -81,18 +92,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_debtoraccount_account">
-    <End Role="account" Type="Self.account" Multiplicity="1" />
-    <End Role="debtoraccount" Type="Self.debtoraccount" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="account">
-        <PropertyRef Name="accountnumber" />
-      </Principal>
-      <Dependent Role="debtoraccount">
-        <PropertyRef Name="account" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_debtoraccount_debtors">
     <End Role="debtors" Type="Self.debtors" Multiplicity="1" />
     <End Role="debtoraccount" Type="Self.debtoraccount" Multiplicity="*" />
@@ -111,6 +110,7 @@
     <EntitySet Name="creditoraccount" EntityType="Self.creditoraccount" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="debtoraccount" EntityType="Self.debtoraccount" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="debtors" EntityType="Self.debtors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_creditoraccount_account" Association="Self.FK_creditoraccount_account">
       <End Role="account" EntitySet="account" />
@@ -119,10 +119,6 @@
     <AssociationSet Name="FK_creditoraccount_creditor" Association="Self.FK_creditoraccount_creditor">
       <End Role="creditor" EntitySet="creditor" />
       <End Role="creditoraccount" EntitySet="creditoraccount" />
-    </AssociationSet>
-    <AssociationSet Name="FK_debtoraccount_account" Association="Self.FK_debtoraccount_account">
-      <End Role="account" EntitySet="account" />
-      <End Role="debtoraccount" EntitySet="debtoraccount" />
     </AssociationSet>
     <AssociationSet Name="FK_debtoraccount_debtors" Association="Self.FK_debtoraccount_debtors">
       <End Role="debtors" EntitySet="debtors" />

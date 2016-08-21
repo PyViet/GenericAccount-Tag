@@ -22,7 +22,7 @@ namespace GenericAccounting.Tests
 
             //retrieving user using username
             Assert.AreEqual(auser.username, useraccess.getUser("pyviet").username);
-            useraccess.deleteUser(auser);
+            useraccess.deleteUser(auser.username);
             Assert.IsNull(useraccess.getUser("pyviet"));
         }
     }

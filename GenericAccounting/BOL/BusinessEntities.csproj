@@ -82,6 +82,9 @@
       <DependentUpon>GenericAccountEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>GenericAccountEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="user.cs">
       <DependentUpon>GenericAccountEntities.tt</DependentUpon>
     </Compile>
