@@ -14,8 +14,7 @@ namespace GenericAccounting.Tests
         [TestMethod]
         public void TestUsers()
         {
-            //test inserting user
-            useraccess.deleteAll();         
+            //test inserting user    
             auser.username = "pyviet";
             auser.password = "extremelylongpassword";
             useraccess.insertUser(auser);
